@@ -1,0 +1,265 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #0f172a;
+  color: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #f8fafc 0%, #e2e8f0 45%, #cbd5f5 100%);
+  min-height: 100vh;
+}
+
+main {
+  padding: 3rem clamp(1rem, 4vw, 3.5rem);
+  display: flex;
+  justify-content: center;
+}
+
+.finance-shell {
+  width: min(1200px, 100%);
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 25px 45px rgba(15, 23, 42, 0.2);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  backdrop-filter: blur(20px);
+  padding: clamp(1.5rem, 2.5vw, 2.75rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 2vw, 2.5rem);
+}
+
+@media (min-width: 1024px) {
+  .finance-shell {
+    grid-template-columns: 7fr 3fr;
+    align-items: start;
+  }
+}
+
+.sheet-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sheet-title {
+  font-size: clamp(1.75rem, 2.6vw, 2.75rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.sheet-subtitle {
+  font-size: 1rem;
+  color: #475569;
+  margin: 0;
+}
+
+.sheet-grid {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: white;
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.08);
+}
+
+.finance-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.95rem;
+}
+
+.finance-table thead th {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(248, 250, 252, 0.92);
+  color: #334155;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  text-align: right;
+}
+
+.finance-table thead th:first-child {
+  text-align: left;
+}
+
+.finance-table tbody tr:nth-child(even) {
+  background: rgba(248, 250, 252, 0.9);
+}
+
+.finance-table th,
+.finance-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.26);
+  color: #0f172a;
+}
+
+.finance-table tbody tr:last-child th,
+.finance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.finance-table th {
+  text-align: left;
+  font-weight: 600;
+}
+
+.amount-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: right;
+  font: inherit;
+  color: inherit;
+  padding: 0.25rem 0;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-bottom: 1px solid #3b82f6;
+}
+
+.amount-input::placeholder {
+  color: #cbd5f5;
+}
+
+.cell-metric {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.08);
+}
+
+.summary-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1e293b;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.summary-row strong {
+  font-size: 1rem;
+}
+
+.summary-row.income {
+  color: #10b981;
+}
+
+.summary-row.expense {
+  color: #ef4444;
+}
+
+.summary-row.net {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(59, 130, 246, 0.08);
+  color: #2563eb;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.toolbar button,
+.toolbar select {
+  border-radius: 999px;
+  padding: 0.6rem 1.1rem;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.toolbar button.primary {
+  background: linear-gradient(135deg, #6366f1, #2563eb);
+  color: white;
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.32);
+}
+
+.toolbar button.secondary {
+  background: rgba(51, 65, 85, 0.08);
+  color: #1e293b;
+}
+
+.toolbar button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.18);
+}
+
+.toolbar select {
+  background: white;
+  color: #0f172a;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.note {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+}
+
+.insights {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.insight-item {
+  background: rgba(79, 70, 229, 0.05);
+  border: 1px solid rgba(79, 70, 229, 0.12);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+
+.insight-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #3730a3;
+}
+
+.muted {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}

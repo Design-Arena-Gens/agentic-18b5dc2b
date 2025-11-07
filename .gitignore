@@ -886,6 +886,12 @@ venv.bak/
 data/
 datasets/
 
+# Allow essential configuration JSON
+!package.json
+!tsconfig.json
+!.eslintrc.json
+!package-lock.json
+
 # ===== CUSTOM PROJECT FILES =====
 # Add any project-specific ignores here
 config/secrets.yml
